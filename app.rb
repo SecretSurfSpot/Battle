@@ -21,6 +21,11 @@ class Battle < Sinatra::Base
     erb :play
   end
 
+  get '/attack' do
+    @p1, @p2 = session[:p1], session[:p2]
+    erb :attack
+  end
+
   # Required if running from command line (ruby app.rb) and not using 'rackup'
   run! if app_file == $0
 
