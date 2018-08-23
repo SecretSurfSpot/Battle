@@ -1,8 +1,6 @@
 require 'sinatra'
 require 'shotgun'
 
-
-
 class Battle < Sinatra::Base
   configure do
     enable :sessions
@@ -22,5 +20,8 @@ class Battle < Sinatra::Base
     @p1, @p2 = session[:p1], session[:p2]
     erb :play
   end
+
+  # Required if running from command line (ruby app.rb) and not using 'rackup'
+  run! if app_file == $0
 
 end
