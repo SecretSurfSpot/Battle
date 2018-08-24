@@ -29,7 +29,7 @@ class Battle < Sinatra::Base
     @p1_name = $p1.name
     @p2_name = $p2.name
     @game = Game.new(@p1, @p2)
-    @game.attack_player(@p2)
+    @game.attack(@p2)
     erb :attack
   end
 

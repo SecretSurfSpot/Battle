@@ -3,6 +3,7 @@ require "player"
 describe Player do
   player_1 = Player.new("Andrew")
   player_2 = Player.new("James")
+
   describe "#name" do
     it "returns a name" do
       expect(player_1.name).to eq("Andrew")
@@ -11,7 +12,7 @@ describe Player do
 
   describe "#hit_points" do
     it "initialize with 60 hit points" do
-      expect(player_1.hit_points).to eq(Player::HIT_POINTS)
+      expect(player_1.hit_points).to eq(Player::DEFAULT_HIT_POINTS)
     end
   end
 

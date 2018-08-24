@@ -6,7 +6,7 @@ class Game
 
   end
 
-  def attack_player(player)
+  def attack(player)
     player.receive_damage
   end
 end
