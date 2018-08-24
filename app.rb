@@ -1,4 +1,4 @@
-require 'sinatra'
+require 'sinatra/base'
 require 'shotgun'
 require_relative './lib/player'
 require_relative './lib/game'
