@@ -1,3 +1,24 @@
-<%= @game.player_1.name %> attacks <%= @game.player_2.name %>
+<!-- # <%= @game.player_1.name %>  -->
+<%= @game.turn == "player_1" ? @game.player_1.name : @game.player_2.name %>
 
-<%= @game.player_2.name %>: <%= @game.player_2.hit_points %>HP
+attacks
+
+<!-- # <%= @game.player_2.name %> -->
+<%= @game.turn == "player_1" ? @game.player_2.name : @game.player_1.name %>
+
+
+<!-- # <%= @game.player_2.name %>:  -->
+<%= @game.turn == "player_1" ? @game.player_2.name : @game.player_1.name %>:
+
+
+<!-- # <%= @game.player_2.hit_points %>HP -->
+
+<%= @game.turn == "player_1" ? @game.player_2.hit_points : @game.player_1.hit_points %>HP
+
+<!-- # <%= @game.switch %> -->
+
+
+<form action="/attack">
+      <input type="submit" value=Attack>
+      <a href="/attack">Attack</a>
+</form>

@@ -33,7 +33,8 @@ class Battle < Sinatra::Base
     # @p1_name = $p1.name
     # @p2_name = $p2.name
     @game = $game
-    @game.attack(@game.player_2)
+    @game.turn == "player_1" ? @game.attack(@game.player_2) : @game.attack(@game.player_1)
+    @game.switch
     erb :attack
   end
 
