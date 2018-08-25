@@ -16,18 +16,11 @@ describe Game do
       expect(game.player_2).to eq player_2
     end
   end
-
+  
   describe "#attack" do
     it "damages the player" do
       expect(player_2).to receive(:receive_damage)
       game.attack(player_2)
-    end
-  end
-
-  describe "#switch_player" do
-    it "switches from player_1 to player_2" do
-      game.switch
-      expect(game.turn).to eq ("player_2")
     end
   end
 
