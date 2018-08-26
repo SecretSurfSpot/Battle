@@ -10,9 +10,6 @@ class Battle < Sinatra::Base
   end
 
   post '/names' do
-    # session[:p1], session[:p2] = params[:p1_name], params[:p2_name]
-    # $p1 = Player.new(params[:p1_name])
-    # $p2 = Player.new(params[:p2_name])
     p1 = Player.new(params[:p1_name])
     p2 = Player.new(params[:p2_name])
     $game = Game.new(p1, p2)
@@ -20,22 +17,19 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    # @p1_name = $p1.name
-    # @p2_name = $p2.name
-    # @p2_hit_points = $p2.hit_points
     @game = $game
     erb :play
   end
 
   get '/attack' do
-    # @p1 = $p1
-    # @p2 = $p2
-    # @p1_name = $p1.name
-    # @p2_name = $p2.name
     @game = $game
-    @game.attack(@game.player_2)
-    @game.switch_turns
+    @game.attack(@game.opponent_of(@game.current_turn))
     erb :attack
+  end
+
+  post '/switch-turns' do
+    $game.switch_turns
+    redirect('/play')
   end
 
   # Required if running from command line (ruby app.rb) and not using 'rackup'
